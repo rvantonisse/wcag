@@ -5,6 +5,12 @@ Please do not submit any new pull requests against this branch - please look in 
 
 This repository is used to develop content for WCAG 2, as well as associated understanding documents and techniques.
 
+## Editorial style guide
+
+@@To complete
+
+* Avoid use of RFC2119 terms such as "must", "shall", or "may" in non-normative content, to avoid confusion with normative role.
+
 ## File Structure
 
 WCAG 2.0 was maintained in a different file structure than subsequent versions of WCAG. Source files for WCAG 2.0 are in the wcag20 folder and exists primarily for archival purposes. Do not edit content in that folder.
@@ -103,11 +109,13 @@ Techniques are in the techniques folder, and grouped by technology into sub-fold
 
 The [technique template](techniques/technique-template.html) shows the structure of techniques. Main sections are in top-level &lt;section> elements with specific IDs: meta, applicability, description, examples, tests, related, resources. The description and tests sections are required; the applicability and examples sections are recommended; the related and resources sections are optional. The meta section provides context for the technique during authoring but is removed for publication. The title of the technique is in the `<h1>` element. Elements with `class="instructions"` provide information about populating the template. They should be removed as the technique is developed but if not removed, will be ignored by the generator. **Do not copy `class="instructions"` on real content.**
 
+Techniques can use a temporary style sheet to facilitate review of drafts. This style sheet is replaced by other style sheets and structure for formal publication. To use this style sheet, add `<link rel="stylesheet" type="text/css" href="../../css/editors.css"/>` to the head of the technique.
+
 The generator used to publish techniques uses XML processing, so techniques must be well-formed XML. Techniques use HTML 5 structure so are actually [HTML Polyglot](https://www.w3.org/TR/html-polyglot/).  
 
 ### Images, Examples, Cross References for Techniques
 
-Techniques can include images. Place the image file in the `img` folder of the relevant technology - meaning all techniques for a technology share a common set of images. Use a relative link to load the image. Most images should be loaded with a `<figure>` element and labeled with a `<figcaption>` positioned at the bottom of the figure. Small inline images may be loaded with a `<img>` element with suitable `alt` text.
+Techniques can include images. Place the image file in the `img` folder of the relevant technology - meaning all techniques for a technology share a common set of images. Use a relative link to load the image. Most images should be loaded with a `<figure>` element and labeled with a `<figcaption>` positioned at the bottom of the figure. `<figure>` elements must have an `id` attribute. Small inline images may be loaded with a `<img>` element with suitable `alt` text.
 
 Techniques should include brief code examples to demonstrate how to author content that follows the technique. Code examples should be easy to read, and usually not complete content in themselves. More complete examples can be provided as [working examples](#user-content-provide-working-examples-of-techniques) (see below). Link to working examples at the bottom of each example, in a `<p class="working-example">` element, containing a relative link to `../../working-examples/{example-name}/`.
 
